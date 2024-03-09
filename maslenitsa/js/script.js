@@ -68,6 +68,7 @@ function showLoader() {
 }
 
 $('.js-cook').click(function () {
+    var $heroParent = $('.hero')
     var $hero = $('.hero__main')
     var $loading = $('.loading')
     var $videos = $('.hero__videos')
@@ -83,19 +84,27 @@ $('.js-cook').click(function () {
         var text = $textarea.val()
         console.log(text)
     }
-
-    $videos.fadeOut(500)
-    $hero.fadeOut(500, function () {
-        $loading.fadeIn(500)
-    });
+    $videos.fadeOut(500, function () {
+        $hero.fadeOut(500, function () {
+            $loading.fadeIn(500)
+        });
+    })
     showLoader();
 
     setTimeout(function () {
         console.log("Результат получен")
-        $loading.fadeOut(500)
+
         var $result = $('.result')
-        $result.fadeIn(500)
-    }, 1000);
+        $result.css('height', 'auto');
+        var originalHeight = $result.height();
+        console.log(originalHeight)
+        $heroParent.animate({
+            height: originalHeight
+        }, 500);
+        $loading.fadeOut(500, function () {
+            $result.fadeIn(500)
+        })
+    }, 2000);
 });
 
 const swiper = new Swiper('.swiper', {
@@ -103,7 +112,6 @@ const swiper = new Swiper('.swiper', {
     spaceBetween: 5,
     centeredSlides: true,
     breakpoints: {
-        // when window width is >= 320px
         768: {
             slidesPerView: 4,
             spaceBetween: 20,
@@ -113,18 +121,25 @@ const swiper = new Swiper('.swiper', {
 
 $(document).ready(function () {
     Fancybox.bind("[data-fancybox='result']", {
-        // Your custom options
     });
 });
 
 
 $('.js-cook-again').click(function () {
+    var $heroParent = $('.hero')
     var $hero = $('.hero__main')
     var $videos = $('.hero__videos')
     var $result = $('.result')
 
+    var height = $heroParent.css("min-height");
+    $heroParent.animate({
+        height: height
+    }, 500);
+
     $result.fadeOut(500, function () {
-        $hero.fadeIn(500)
-        $videos.fadeIn(500)
+        $heroParent.css("height", "unset");
+        $hero.fadeIn(500, function () {
+            $videos.fadeIn(500)
+        })
     });
 });
