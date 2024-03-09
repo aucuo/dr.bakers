@@ -6,6 +6,12 @@
 	}
 }
 
+@mixin sm-desk {
+	@media (max-width: 1400px) {
+		@content;
+	}
+}
+
 @mixin md {
 	@media (max-width: 992px) {
 		@content;

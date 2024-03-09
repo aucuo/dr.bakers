@@ -181,10 +181,7 @@ iframe {
             border: 1px solid #E9E9E9;
             padding: 2.5px 10px;
 
-            &:hover {
-                background: #f1f6ff;
-            }
-
+            &:hover,
             &.active {
                 background: #4672D1;
                 color: #fff;

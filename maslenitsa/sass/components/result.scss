@@ -37,6 +37,10 @@
         @include mobile() {
             margin-bottom: 20px;
         }
+
+        &--main {
+            margin-bottom: 0;
+        }
     }
 
     &__swiper {
@@ -47,6 +51,8 @@
         }
 
         .swiper-slide {
+            display: flex;
+            justify-content: center;
             transform: scaleY(0.8);
             transition: transform 0.3s, opacity 0.3s;
             opacity: .8;
@@ -77,16 +83,13 @@
         font-weight: 400;
         line-height: 22px;
         letter-spacing: -0.03em;
-        margin-bottom: 15px;
+        margin-bottom: 30px;
         text-align: center;
-
-        @include mobile() {
-            margin-bottom: 10px;
-        }
     }
 
     &__socials {
         display: flex;
+        margin-bottom: 30px;
 
         &-link {
             &:not(:last-child) {
@@ -97,14 +100,6 @@
         &-image {
             width: 50px;
             height: 50px;
-        }
-    }
-
-    &__button--main {
-        margin-top: 30px;
-
-        @include mobile() {
-            margin-top: 20px;
         }
     }
 }

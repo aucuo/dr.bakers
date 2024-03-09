@@ -52,7 +52,6 @@
     margin-bottom: 10px;
 
     &__image {
-        border-radius: 30px;
         width: 100%;
         height: auto;
     }
@@ -75,7 +74,7 @@
         text-align: left;
         margin-bottom: 0;
 
-        @include md() {
+        @include sm-desk() {
             font-size: 20px;
             line-height: 24px;
         }
@@ -90,7 +89,7 @@
         color: #BCBCBC;
         margin-bottom: 10px;
 
-        @include md() {
+        @include sm-desk() {
             font-size: 20px;
             line-height: 24px;
         }
@@ -106,7 +105,7 @@
         &-item {
             list-style-type: disc;
 
-            @include md() {
+            @include sm-desk() {
                 font-size: 14px;
                 line-height: 20px;
             }
