@@ -1,0 +1,64 @@
+@import '../variables';
+@import '../mixins/breakpoint';
+
+.ticker {
+    width: 100%;
+    background-color: $black;
+    overflow: hidden;
+    padding: 18px 0;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+
+    @include mobile() {
+        padding: 13px 0;
+        margin-bottom: 15px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    &__wrapper {
+        display: flex;
+    }
+
+    &__animation {
+        display: flex;
+        flex-shrink: 0;
+        flex-grow: 1;
+        padding: 0;
+        animation: ticker 20s linear infinite;
+    }
+
+    &__item {
+        display: flex;
+        white-space: nowrap;
+        color: $white;
+        flex-shrink: 0;
+        padding: 0 5px;
+    }
+
+    &__icons {
+        display: flex;
+        margin-right: 10px;
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@keyframes ticker {
+    0% {
+        transform: translate3d(0);
+    }
+
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}

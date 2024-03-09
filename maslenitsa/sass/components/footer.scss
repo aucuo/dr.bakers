@@ -1,0 +1,33 @@
+@import '../variables';
+@import '../mixins/breakpoint';
+
+.footer {
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 27.5px 81px;
+
+        @include mobile() {
+            flex-direction: column;
+            padding: 15px 0;
+        }
+    }
+
+    &__link {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 25px;
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+
+        @include md() {
+            font-size: 14px;
+            line-height: 20px;
+
+            &:first-child {
+                margin-bottom: 4px;
+            }
+        }
+    }
+}

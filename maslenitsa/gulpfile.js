@@ -7,11 +7,11 @@ function buildStyles() {
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
-        .pipe(dest('./css/')) // Сохранить в папку ./css/components
+        .pipe(dest('./css/'))
 }
 
 function watchTask() {
-    watch(['./sass/**/*.scss'], buildStyles); // Отслеживать все файлы .scss
+    watch(['./sass/**/*.scss'], buildStyles);
 }
 
 exports.default = series(buildStyles, watchTask);

@@ -1,0 +1,115 @@
+@import '../variables';
+@import '../mixins/breakpoint';
+
+.recipes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 37px;
+
+    @include mobile() {
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: 40px;
+
+        @include mobile() {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__row {
+        margin-bottom: 30px;
+
+        @include mobile() {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__link {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 25px;
+        letter-spacing: -0.03em;
+        text-decoration: underline;
+        color: #787878;
+
+        &:hover {
+            color: #000;
+        }
+    }
+}
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 10px;
+
+    &__image {
+        border-radius: 30px;
+        width: 100%;
+        height: auto;
+    }
+
+    &__info {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        background-color: #fff;
+        padding: 20px;
+        margin-top: -45px;
+        border-radius: 20px;
+    }
+
+    &__name {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 29px;
+        letter-spacing: -0.04em;
+        text-align: left;
+        margin-bottom: 0;
+
+        @include md() {
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+
+    &__type {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 29px;
+        letter-spacing: -0.04em;
+        text-align: left;
+        color: #BCBCBC;
+        margin-bottom: 10px;
+
+        @include md() {
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+
+    &__ingredients {
+        margin-left: 20px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: -0.03em;
+
+        &-item {
+            list-style-type: disc;
+
+            @include md() {
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+    }
+}

@@ -1,0 +1,80 @@
+@import '../variables';
+@import '../mixins/breakpoint';
+
+.loading {
+    display: none;
+    width: 100%;
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__animation {
+        width: 406px;
+        height: 406px;
+        margin-bottom: 50px;
+
+        @include tablet() {
+            margin-bottom: 10px;
+        }
+
+        @include mobile() {
+            margin-bottom: 38px;
+        }
+    }
+
+    &__text {
+        position: relative;
+        width: 100%;
+        height: 80px;
+        overflow: hidden;
+
+        @include mobile() {
+            height: 50px;
+        }
+
+        &-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 500;
+            line-height: 43px;
+            letter-spacing: -0.04em;
+            text-align: center;
+            height: 80px;
+
+            // FOR ANIMATION
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: transform 0.5s, opacity .5s;
+
+            @include mobile() {
+                font-size: 24px;
+                line-height: 29px;
+                height: 50px;
+            }
+        }
+    }
+}
+
+.is-active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.is-leaving {
+    transform: translateY(-100%);
+    opacity: 0;
+}

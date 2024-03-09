@@ -1,0 +1,44 @@
+@import '../variables';
+@import '../mixins/breakpoint';
+
+.switcher {
+    position: relative;
+    display: flex;
+    padding: 2px;
+    border: 1px solid #E9E9E9;
+    border-radius: 13px;
+    transition: .3s;
+    background: #fff;
+    user-select: none;
+
+    &__background {
+        position: absolute;
+        z-index: 1;
+        top: 2px;
+        bottom: 2px;
+        left: 2px;
+        width: 50%;
+        border-radius: 13px;
+        background-color: #FAFAFA;
+        transition: .3s;
+    }
+
+    &__option {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        padding: 4px 10px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        letter-spacing: -0.03em;
+        border-radius: 13px;
+        color: #B3B3B3;
+        transition: .3s;
+        cursor: pointer;
+
+        &--active {
+            color: #4672D1;
+        }
+    }
+}
