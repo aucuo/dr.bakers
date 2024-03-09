@@ -3,8 +3,11 @@
 
 .result {
     display: none;
-    padding-top: 35px;
-    padding-bottom: 60px;
+    padding: 50px 0;
+
+    @include md() {
+        padding: 30px 0;
+    }
 
     &__wrapper {
         display: flex;
@@ -75,6 +78,7 @@
         line-height: 22px;
         letter-spacing: -0.03em;
         margin-bottom: 15px;
+        text-align: center;
 
         @include mobile() {
             margin-bottom: 10px;

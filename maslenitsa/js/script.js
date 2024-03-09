@@ -1,3 +1,5 @@
+"use strict"
+
 $('.hero__row-item').click(function () {
     $(this).toggleClass('active');
 });
@@ -68,7 +70,6 @@ function showLoader() {
 }
 
 $('.js-cook').click(function () {
-    var $heroParent = $('.hero')
     var $hero = $('.hero__main')
     var $loading = $('.loading')
     var $videos = $('.hero__videos')
@@ -76,14 +77,34 @@ $('.js-cook').click(function () {
 
     if ($row.hasClass('active')) {
         console.log("Обработка нажатых тегов")
+
         var $buttons = $row.find('.hero__row-item.active');
         console.log($buttons)
     } else {
         console.log("Обработка введенного текста")
+
         var $textarea = $('.hero__recipe-textarea')
         var text = $textarea.val()
         console.log(text)
     }
+
+    const swiper = new Swiper('.swiper', {
+        init: true,
+        slidesPerView: 2.2,
+        spaceBetween: 5,
+        centeredSlides: true,
+        preloadImages: true,
+        direction: 'horizontal',
+        observer: true,
+        observeParents: true,
+        breakpoints: {
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+            },
+        }
+    });
+
     $videos.fadeOut(500, function () {
         $hero.fadeOut(500, function () {
             $loading.fadeIn(500)
@@ -95,29 +116,14 @@ $('.js-cook').click(function () {
         console.log("Результат получен")
 
         var $result = $('.result')
-        $result.css('height', 'auto');
-        var originalHeight = $result.height();
-        console.log(originalHeight)
-        $heroParent.animate({
-            height: originalHeight
-        }, 500);
+
         $loading.fadeOut(500, function () {
-            $result.fadeIn(500)
+            $result.slideDown(1000)
         })
     }, 2000);
 });
 
-const swiper = new Swiper('.swiper', {
-    slidesPerView: 4,
-    spaceBetween: 5,
-    centeredSlides: true,
-    breakpoints: {
-        768: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-        },
-    }
-});
+
 
 $(document).ready(function () {
     Fancybox.bind("[data-fancybox='result']", {
@@ -126,18 +132,11 @@ $(document).ready(function () {
 
 
 $('.js-cook-again').click(function () {
-    var $heroParent = $('.hero')
     var $hero = $('.hero__main')
     var $videos = $('.hero__videos')
     var $result = $('.result')
 
-    var height = $heroParent.css("min-height");
-    $heroParent.animate({
-        height: height
-    }, 500);
-
-    $result.fadeOut(500, function () {
-        $heroParent.css("height", "unset");
+    $result.slideUp(1000, function () {
         $hero.fadeIn(500, function () {
             $videos.fadeIn(500)
         })
