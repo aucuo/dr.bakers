@@ -120,7 +120,7 @@ $('.js-cook').click(function () {
         $loading.fadeOut(500, function () {
             $result.slideDown(1000)
         })
-    }, 2000);
+    }, 8000);
 });
 
 
